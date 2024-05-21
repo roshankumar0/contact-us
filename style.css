@@ -63,19 +63,42 @@ label span {
     flex-direction: column;
 }
 
-input {
+input,
+textarea {
     height: 51px;
     padding: 12px 24px;
     border-radius: 8px;
     border: 2px solid var(--medium-grey);
 }
 
-input:hover {
+input:hover,
+textarea:hover {
     border: 2px solid var(--custom-green);
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     background-color: var(--light-green);
+    border: 2px solid var(--custom-green);
+}
+
+input:invalid,
+textarea:invalid {
+    border: 2px solid var(--custom-red);
+}
+
+input:invalid+.error,
+textarea:invalid+.error {
+    display: block;
+}
+
+input:required:invalid,
+textarea:required:invalid {
+    border: 2px solid var(--custom-red);
+}
+
+input:required:valid,
+textarea:required:valid {
     border: 2px solid var(--custom-green);
 }
 
@@ -104,39 +127,29 @@ input:focus {
     cursor: pointer;
 }
 
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
+}
+
+input[type="radio"]:checked {
+    accent-color: var(--custom-green);
+}
+
 .radio-container:hover {
     border: 2px solid var(--custom-green);
 }
 
-#radio-selected-general,
-#radio-selected-support {
+input[type="radio"]:required:invalid+label+.hidden {
+    display: block;
+}
+
+input[type="radio"]:required:valid+label+.hidden {
     display: none;
-    cursor: pointer;
-    position: absolute;
-    left: 24px;
-    z-index: 10;
 }
 
-input[type="radio"]:checked + label + #radio-selected-general,
-input[type="radio"]:checked + label + #radio-selected-support {
-    display: inline-block;
-    z-index: 20;
-}
-
-input[type="radio"] {
-    width: 19px;
-    height: 19px;
-    border-radius: 100%; 
-    margin: auto 0;
-    vertical-align: middle; 
-    transition: opacity 0.5s ease;
-    cursor: pointer;
-    padding: 0;
-    appearance: none;
-}
-
-input[type="radio"]:checked {
-    appearance: none !important;
+#radio-proxy:invalid+#queryError {
+    display: block;
 }
 
 #message {
@@ -176,8 +189,18 @@ input[type="checkbox"] {
     padding: 0;
 }
 
-input[type="checkbox"]:checked {
-   appearance: none;
+input[type="checkbox"]:required:invalid {
+    border: 2px solid var(--custom-red);
+}
+
+input[type="checkbox"]:required:valid {
+    border: 2px solid var (var(--custom-green));
+}
+
+
+
+input[type=checkbox] {
+    accent-color: var(--custom-green);
 }
 
 #check {
@@ -186,7 +209,6 @@ input[type="checkbox"]:checked {
     height: 24px;
     cursor: pointer;
 }
-
 
 #btnSubmit {
     background-color: var(--custom-green);
@@ -214,14 +236,7 @@ footer {
     color: var(--custom-red);
     margin-top: 8px;
     line-height: 150%;
-}
-
-.errorActive {
-    border: 2px solid var(--custom-red) !important;
-}
-
-.focus {
-    background-color: var(--light-green);
+    /* display: none; */
 }
 
 #submited {
@@ -230,29 +245,21 @@ footer {
     background-color: var(--dark-grey);
     width: 82%;
     color: white;
-    border-radius: 12px;
     padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
 }
 
-h2 span {
-    margin-right: 8px;
-}
-
-h2 {
+#submited h2 {
+    font-size: 32px;
     font-weight: bold;
-    font-size: 18px;
     margin-bottom: 8px;
 }
 
-.hidden {
-    display: none;
-}
-
-.attribution { 
-    font-size: 11px; text-align: center; 
-}
-
-.attribution a { 
-    color: var(--custom-green);
-    font-weight: bold;
+#submited p {
+    font-size: 18px;
+    text-align: center;
 }

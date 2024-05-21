@@ -1,0 +1,38 @@
+@media only screen and (min-width: 1280px) {
+    body {
+        padding: 138px 0;
+    }
+
+    #form {
+        width: 50%;
+        padding: 40px;
+    }
+
+    #names-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .name-container {
+        width: 100%;
+    }
+
+    .radios-container {
+        flex-direction: row;
+    }
+
+    #message {
+        min-height: 105px;
+    }
+    
+
+    .checkbox-container label {
+        padding-bottom: 15px;
+    }
+
+    #submited {
+        width: 450px;
+    }
+}

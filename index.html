@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Contact form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tablet.css">
+  <link rel="stylesheet" href="desktop.css">
+
+  <script src="script.js" defer></script>
+  
+  <title>Frontend Mentor | Contact form</title>
 </head>
-
 <body>
-  <main class="main-content">
+
+  <form id="form">
+
     <h1>Contact Us</h1>
-    <form id="contact-form">
-      <div class="form-group name-group">
-        <div class="form-item">
-          <label for="first-name">First Name*</label>
-          <input type="text" name="first-name" id="first-name" required>
-          <span class="error-message">This field is required</span>
-        </div>
-        <div class="form-item">
-          <label for="last-name">Last Name*</label>
-          <input type="text" name="last-name" id="last-name" required>
-          <span class="error-message">This field is required</span>
-        </div>
-      </div>
-      <div class="form-item">
-        <label for="email">Email Address*</label>
-        <input type="email" name="email" id="email" placeholder="email@example.com" required>
-        <span class="error-message">Please enter a valid email address</span>
-      </div>
-      <div class="form-item">
-        <label>Query Type*</label>
-        <div class="radio-group">
-          <div class="radio-item">
-            <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
-            <label for="general-enquiry">General Enquiry</label>
-          </div>
-          <div class="radio-item">
-            <input type="radio" name="query-type" id="support-request" value="support-request" required>
-            <label for="support-request">Support Request</label>
-          </div>
-        </div>
-        <span class="error-message">Please select a query type</span>
-      </div>
-      <div class="form-item">
-        <label for="message">Message*</label>
-        <textarea name="message" id="message" rows="4" required></textarea>
-        <span class="error-message">This field is required</span>
-      </div>
-      <div class="form-item">
-        <div>
-          <input type="checkbox" name="consent" id="consent" required>
-          <label for="consent">I consent to being contacted by the team</label>
-        </div>
-        <span class="error-message">To submit this form, please consent to being contacted</span>
-      </div>
-      <button type="submit">Submit</button>
-      <div class="form-message" id="form-message" style="display:none;">
-        <h4>Message Sent!</h4>
-        <p>Thanks for completing the form. We'll be in touch soon!</p>
-      </div>
-    </form>
-  </main>
 
+    <div id="names-container">
+      <div class="name-container">
+        <label for="firstName">First Name <span>*</span></label>
+        <input type="text" name="firstName" id="firstName" required>
+        <span class="error" id="firstNameError"></span>
+      </div>
+      <div class="name-container">
+        <label for="lastName">Last Name <span>*</span></label>
+        <input type="text" name="lastName" id="lastName" required>
+        <span class="error" id="lastNameError"></span>
+      </div>
+    </div>
+
+    <label for="email">Email Address <span>*</span></label>
+    <input type="email" name="email" id="email" required>
+    <span class="error" id="emailError"></span>
+
+    <label for="radio">Query Type <span>*</span></label>
+    <div class="radios-container">
+      <div id="general-container" class="radio-container">
+        <input type="radio" name="radio" id="general">
+        <label for="general">General Enquiry</label>
+        <img class="hidden" id="radio-selected-general" src="./assets/images/icon-radio-selected.svg" alt="Radio Selected">
+      </div>
+      <div id="support-container" class="radio-container">
+        <input type="radio" name="radio" id="support">
+        <label for="support">Support Request</label>
+        <img class="hidden" id="radio-selected-support" src="./assets/images/icon-radio-selected.svg" alt="Radio Selected">
+      </div>
+    </div>
+    <span class="error" id="queryError"></span>
+
+    <label for="message">Message <span>*</span></label>
+    <textarea name="message" id="message" required></textarea>
+    <span class="error" id="messageError"></span>
+
+    <div class="checkbox-container">
+      <input id="checkbox" type="checkbox" required>
+      <label for="checkbox">I consent to being contacted by the team <span>*</span></label>
+      <img class="hidden" id="check" src="./assets/images/icon-checkbox-check.svg" alt="Checkbox Check">
+    </div>
+    <span class="error" id="checkboxError"></span>
+
+    <button id="btnSubmit" type="submit">Submit</button>
+  </form>
+
+  <div class="hidden" id="submited">
+    <h2><span><img src="./assets/images/icon-success-check.svg" alt="Success Check"></span> Message Sent!</h2>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/flaviare1s">Flávia Reis</a>.
+  </footer>
+  <script src="script.js"></script>
 </body>
-
 </html>
